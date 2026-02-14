@@ -373,24 +373,6 @@ function animateVideoSection() {
     }, '-=400');
 }
 
-// Fallback: si después de 5s el video sigue invisible, forzar visibilidad
-setTimeout(() => {
-    const videoFrame = document.querySelector('.video-frame');
-    const videoTitle = document.querySelector('.video-title');
-    const videoDesc = document.querySelector('.video-description');
-    if (videoFrame && getComputedStyle(videoFrame).opacity === '0') {
-        videoFrame.style.opacity = '1';
-        videoFrame.style.transform = 'none';
-    }
-    if (videoTitle && getComputedStyle(videoTitle).opacity === '0') {
-        videoTitle.style.opacity = '1';
-        videoTitle.style.transform = 'none';
-    }
-    if (videoDesc && getComputedStyle(videoDesc).opacity === '0') {
-        videoDesc.style.opacity = '1';
-        videoDesc.style.transform = 'none';
-    }
-}, 5000);
 
 function animateWishesSection() {
     const tl = anime.timeline({ easing: 'easeOutExpo' });

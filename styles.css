@@ -669,8 +669,6 @@ body {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    opacity: 0;
-    transform: translateY(30px);
 }
 
 .video-title-icon {
@@ -713,8 +711,6 @@ body {
     border-radius: 20px;
     box-shadow: var(--shadow-gold);
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
 }
 
 .video-frame::before {
@@ -760,8 +756,6 @@ body {
     font-size: clamp(14px, 2vw, 18px);
     color: var(--brown-warm);
     margin-bottom: 30px;
-    opacity: 0;
-    transform: translateY(20px);
 }
 
 .video-subtitle {
