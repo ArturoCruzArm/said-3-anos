@@ -689,7 +689,9 @@ body {
 
 .video-wrapper {
     position: relative;
-    display: inline-block;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .video-glow {
@@ -734,12 +736,12 @@ body {
 .video-responsive {
     position: relative;
     width: 100%;
-    max-width: 800px;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
     border-radius: 12px;
     background: var(--black-soft);
+    -webkit-overflow-scrolling: touch;
 }
 
 .video-responsive iframe {
@@ -748,6 +750,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    border: none;
     border-radius: 12px;
 }
 
@@ -1026,14 +1029,23 @@ body {
         max-width: 300px;
     }
 
-    .video-btn {
-        width: 60px;
-        height: 60px;
+    .video-frame {
+        padding: 8px;
+        border-radius: 14px;
     }
 
-    .video-btn svg {
-        width: 24px;
-        height: 24px;
+    .video-responsive {
+        border-radius: 8px;
+    }
+
+    .video-responsive iframe {
+        border-radius: 8px;
+    }
+
+    .video-title {
+        font-size: clamp(24px, 6vw, 36px);
+        flex-wrap: wrap;
+        margin-bottom: 20px;
     }
 
     .music-btn {
@@ -1056,6 +1068,49 @@ body {
 
     .wish-word {
         width: 80%;
+    }
+
+    .video-frame {
+        padding: 6px;
+        border-radius: 10px;
+    }
+
+    .video-responsive {
+        border-radius: 6px;
+    }
+
+    .video-responsive iframe {
+        border-radius: 6px;
+    }
+
+    #video {
+        padding: 40px 12px;
+    }
+
+    .video-description {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+}
+
+/* Landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .section {
+        min-height: auto;
+        padding: 40px 20px;
+    }
+
+    #hero {
+        min-height: 100vh;
+    }
+
+    .video-wrapper {
+        max-width: 600px;
+    }
+
+    .video-title {
+        font-size: 28px;
+        margin-bottom: 15px;
     }
 }
 
