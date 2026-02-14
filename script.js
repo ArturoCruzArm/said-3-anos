@@ -358,6 +358,13 @@ function animateVideoSection() {
     });
 
     tl.add({
+        targets: '.video-description',
+        translateY: [20, 0],
+        opacity: [0, 1],
+        duration: 600
+    }, '-=400');
+
+    tl.add({
         targets: '.video-frame',
         translateY: [40, 0],
         scale: [0.95, 1],

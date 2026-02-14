@@ -751,6 +751,16 @@ body {
     border-radius: 12px;
 }
 
+.video-description {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(14px, 2vw, 18px);
+    color: var(--brown-warm);
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
 .video-subtitle {
     margin-top: 20px;
     font-size: 14px;
