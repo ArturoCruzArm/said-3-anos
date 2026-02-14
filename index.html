@@ -134,18 +134,20 @@
                 <div class="video-wrapper">
                     <div class="video-glow"></div>
                     <div class="video-frame">
-                        <div id="youtube-player"></div>
-                    </div>
-                    <div class="video-controls-custom">
-                        <button id="play-btn" class="video-btn" aria-label="Reproducir">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </button>
+                        <div class="video-responsive">
+                            <iframe
+                                id="youtube-player"
+                                src="https://www.youtube.com/embed/awkIJps9UmA?rel=0&modestbranding=1&playsinline=1&vq=hd1080&hd=1"
+                                title="Video de Said - 3 Años"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
                     </div>
                 </div>
 
-                <p class="video-subtitle">Click para reproducir en máxima calidad</p>
+                <p class="video-subtitle">Dale play al video para ver los momentos mágicos</p>
             </div>
         </section>
 
@@ -187,7 +189,6 @@
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
 </body>
 </html>

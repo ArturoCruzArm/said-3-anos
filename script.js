@@ -1,21 +1,17 @@
 /**
  * LOS 3 AÑOS DE SAID - JavaScript Mágico
- * Animaciones con Anime.js + YouTube API + Efectos especiales
+ * Animaciones con Anime.js + Efectos especiales
  */
 
 // ========================================
 // CONFIGURACIÓN GLOBAL
 // ========================================
 const CONFIG = {
-    youtubeVideoId: 'awkIJps9UmA',
     particleCount: 50,
     balloonCount: 8,
     confettiCount: 100,
     animationDelay: 500
 };
-
-let player;
-let isPlayerReady = false;
 
 // ========================================
 // LOADER Y INICIO
@@ -122,14 +118,13 @@ function initParticles() {
 function initBalloons() {
     const container = document.getElementById('balloons-container');
     const balloonEmojis = ['🎈', '🎈', '🎈', '🎁', '⭐', '🎀'];
-    const colors = ['#e74c3c', '#3498db', '#f1c40f', '#9b59b6', '#2ecc71', '#e91e63'];
 
     for (let i = 0; i < CONFIG.balloonCount; i++) {
-        createBalloon(container, balloonEmojis, colors, i);
+        createBalloon(container, balloonEmojis, i);
     }
 }
 
-function createBalloon(container, emojis, colors, index) {
+function createBalloon(container, emojis, index) {
     const balloon = document.createElement('div');
     balloon.className = 'balloon';
     balloon.textContent = emojis[Math.floor(Math.random() * emojis.length)];
@@ -447,79 +442,22 @@ function animateWishesSection() {
 }
 
 // ========================================
-// YOUTUBE API
-// ========================================
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('youtube-player', {
-        videoId: CONFIG.youtubeVideoId,
-        playerVars: {
-            'autoplay': 0,
-            'controls': 1,
-            'rel': 0,
-            'showinfo': 0,
-            'modestbranding': 1,
-            'playsinline': 1,
-            'quality': 'hd1080', // Máxima calidad
-            'vq': 'hd1080'
-        },
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
-}
-
-function onPlayerReady(event) {
-    isPlayerReady = true;
-    // Establecer máxima calidad disponible
-    event.target.setPlaybackQuality('hd1080');
-
-    // Botón de play personalizado
-    const playBtn = document.getElementById('play-btn');
-    playBtn.addEventListener('click', () => {
-        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-            player.pauseVideo();
-        } else {
-            player.playVideo();
-            // Asegurar máxima calidad al reproducir
-            player.setPlaybackQuality('hd1080');
-        }
-    });
-}
-
-function onPlayerStateChange(event) {
-    const playBtn = document.getElementById('play-btn');
-
-    if (event.data === YT.PlayerState.PLAYING) {
-        playBtn.innerHTML = `
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-            </svg>
-        `;
-    } else {
-        playBtn.innerHTML = `
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-            </svg>
-        `;
-    }
-}
-
-// ========================================
 // MÚSICA DE FONDO
 // ========================================
 const musicBtn = document.getElementById('music-toggle');
 const bgMusic = document.getElementById('bg-music');
 
-musicBtn.addEventListener('click', () => {
-    if (bgMusic.paused) {
-        bgMusic.play();
-        musicBtn.classList.add('playing');
-    } else {
-        bgMusic.pause();
-        musicBtn.classList.remove('playing');
-    }
-});
+if (musicBtn && bgMusic) {
+    musicBtn.addEventListener('click', () => {
+        if (bgMusic.paused) {
+            bgMusic.play();
+            musicBtn.classList.add('playing');
+        } else {
+            bgMusic.pause();
+            musicBtn.classList.remove('playing');
+        }
+    });
+}
 
 // ========================================
 // EFECTOS ADICIONALES
@@ -533,7 +471,7 @@ window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const floatingElements = document.querySelectorAll('.float-star, .float-heart');
 
-            floatingElements.forEach((el, index) => {
+            floatingElements.forEach((el) => {
                 const speed = el.dataset.speed || 1;
                 el.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
             });
@@ -562,7 +500,6 @@ setInterval(() => {
         createBalloon(
             document.getElementById('balloons-container'),
             ['🎈', '🎈', '⭐', '🎀', '🎁'],
-            [],
             0
         );
     }
