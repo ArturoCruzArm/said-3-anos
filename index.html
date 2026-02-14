@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los 3 Años de Said</title>
+    <link rel="canonical" href="https://said.invitados.org">
+
+    <!-- Fuentes elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+
+    <!-- Three.js para efectos 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fondo de partículas mágicas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Confetti container -->
+    <div id="confetti-container"></div>
+
+    <!-- Globos flotantes -->
+    <div id="balloons-container"></div>
+
+    <!-- Loader inicial mágico -->
+    <div id="magic-loader">
+        <div class="loader-content">
+            <div class="magic-number">3</div>
+            <div class="magic-text">años de magia...</div>
+            <div class="sparkles">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <main id="main-content">
+        <!-- Sección Hero con foto -->
+        <section id="hero" class="section">
+            <div class="hero-bg-overlay"></div>
+
+            <div class="floating-elements">
+                <div class="float-star" data-speed="2">&#10022;</div>
+                <div class="float-star" data-speed="3">&#10022;</div>
+                <div class="float-heart" data-speed="1.5">&#10084;</div>
+                <div class="float-star" data-speed="2.5">&#10022;</div>
+                <div class="float-heart" data-speed="1">&#10084;</div>
+            </div>
+
+            <div class="hero-content">
+                <div class="title-container">
+                    <h1 class="main-title">
+                        <span class="title-line line-1">
+                            <span class="word">Los</span>
+                        </span>
+                        <span class="title-line line-2">
+                            <span class="big-number">3</span>
+                            <span class="word">Años</span>
+                        </span>
+                        <span class="title-line line-3">
+                            <span class="word">de</span>
+                            <span class="name-said">Said</span>
+                        </span>
+                    </h1>
+                </div>
+
+                <div class="photo-frame-container">
+                    <div class="photo-glow"></div>
+                    <div class="photo-frame">
+                        <div class="frame-corner top-left"></div>
+                        <div class="frame-corner top-right"></div>
+                        <div class="frame-corner bottom-left"></div>
+                        <div class="frame-corner bottom-right"></div>
+                        <div class="photo-inner">
+                            <img src="assets/said.png" alt="Said - 3 Años" class="main-photo" id="main-photo">
+                        </div>
+                    </div>
+                    <div class="photo-reflection"></div>
+                </div>
+
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <p>Desliza para ver más</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de mensaje -->
+        <section id="message" class="section">
+            <div class="message-container">
+                <div class="decorative-line left"></div>
+                <div class="message-content">
+                    <h2 class="message-title">Un día especial</h2>
+                    <p class="message-text">
+                        Hoy celebramos tres años llenos de <span class="highlight">sonrisas</span>,
+                        <span class="highlight">travesuras</span> y <span class="highlight">amor infinito</span>.
+                    </p>
+                    <p class="message-text">
+                        Said ha sido la luz que ilumina nuestra familia desde el primer día,
+                        y verlo crecer rodeado de quienes lo amamos, es el regalo más grande.
+                    </p>
+                    <div class="heart-divider">
+                        <span>&#10084;</span>
+                    </div>
+                    <p class="message-blessing">
+                        En este día tan especial, agradecemos a Dios por su vida,
+                        por su salud y por cada momento compartido.
+                    </p>
+                </div>
+                <div class="decorative-line right"></div>
+            </div>
+        </section>
+
+        <!-- Sección del video -->
+        <section id="video" class="section">
+            <div class="video-section-bg"></div>
+
+            <div class="video-container">
+                <h2 class="video-title">
+                    <span class="video-title-icon">&#127902;</span>
+                    Momentos Mágicos
+                    <span class="video-title-icon">&#127902;</span>
+                </h2>
+
+                <div class="video-wrapper">
+                    <div class="video-glow"></div>
+                    <div class="video-frame">
+                        <div id="youtube-player"></div>
+                    </div>
+                    <div class="video-controls-custom">
+                        <button id="play-btn" class="video-btn" aria-label="Reproducir">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="video-subtitle">Click para reproducir en máxima calidad</p>
+            </div>
+        </section>
+
+        <!-- Sección final con deseos -->
+        <section id="wishes" class="section">
+            <div class="wishes-bg"></div>
+            <div class="wishes-content">
+                <div class="cake-icon">&#127874;</div>
+                <h2 class="wishes-title">¡Felices 3 Años!</h2>
+                <p class="wishes-name">Said</p>
+                <div class="wishes-message">
+                    <p>Que tu camino siempre esté lleno de</p>
+                    <div class="wishes-words">
+                        <span class="wish-word" data-delay="0">bendiciones</span>
+                        <span class="wish-word" data-delay="200">sueños cumplidos</span>
+                        <span class="wish-word" data-delay="400">abrazos sinceros</span>
+                    </div>
+                </div>
+                <div class="final-hearts">
+                    <span>&#10084;</span>
+                    <span>&#10084;</span>
+                    <span>&#10084;</span>
+                </div>
+                <p class="champion-text">¡Campeón!</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Botón de música -->
+    <button id="music-toggle" class="music-btn" aria-label="Toggle música">
+        <span class="music-icon">&#9835;</span>
+        <span class="music-waves">
+            <span></span><span></span><span></span>
+        </span>
+    </button>
+
+    <!-- Audio de fondo (opcional) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
